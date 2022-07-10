@@ -6,7 +6,7 @@ namespace MustafaEraslanGraduationProject.Entities.IdentityAuth
     {
         public string Name { get; set; }
 
-        public string Suname { get; set; }
+        public string Surname { get; set; }
 
         public string UserType { get; set; }
     }

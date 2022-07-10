@@ -1,16 +1,16 @@
 using Microsoft.EntityFrameworkCore;
-using MustafaEraslanGraduationProject.Core;
+using MustafaEraslanGraduationProject;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<GraduationDbContext>(
+builder.Services.AddDbContext<moviesContext>(
 
     o => o.UseNpgsql(builder.Configuration.GetConnectionString("default"), o =>
     {
-        o.MigrationsAssembly(Assembly.GetAssembly(typeof(GraduationDbContext)).GetName().Name);
+        o.MigrationsAssembly(Assembly.GetAssembly(typeof(moviesContext)).GetName().Name);
     }));
 
 builder.Services.AddControllers();
