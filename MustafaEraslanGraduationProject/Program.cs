@@ -1,6 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using MustafaEraslanGraduationProject.Core;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<GraduationDbContext>(
+
+    o => o.UseNpgsql(builder.Configuration.GetConnectionString("default"), o =>
+    {
+        o.MigrationsAssembly(Assembly.GetAssembly(typeof(GraduationDbContext)).GetName().Name);
+    }));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
