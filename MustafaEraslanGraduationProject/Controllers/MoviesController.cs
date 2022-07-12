@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using MustafaEraslanGraduationProject.Entities;
+using MustafaEraslanGraduationProject.Service;
 
 namespace MustafaEraslanGraduationProject.Controllers
 {
@@ -8,36 +8,62 @@ namespace MustafaEraslanGraduationProject.Controllers
     [ApiController]
     public class MoviesController : ControllerBase
     {
-        // GET: api/<Movies>
-        [HttpGet]
-        public IEnumerable<string> GetMovieDetail()
+        private IMovieService _movieService;
+        public MoviesController(IMovieService movieService)
         {
-            return new string[] { "" };
+            _movieService = movieService;
+        }
+
+        [HttpGet]
+        public Mytable GetMovieDetail(long id)
+        {
+            return _movieService.GetMovieDetail(id);
         }
 
         // GET api/<Movies>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public List<Mytable> GetMovieList(int genreId)
         {
-            return "value";
+            return _movieService.GetMovieList(genreId);
+        }
+
+        [HttpGet]
+        public List<Mytable> GetMovieList(float rateFilter)
+        {
+            return _movieService.GetMovieList(rateFilter);
+        }
+
+        [HttpGet]
+        public List<Mytable> GetMovieList(DateTime releaseDate)
+        {
+            return _movieService.GetMovieList(releaseDate);
+        }
+
+        [HttpGet]
+        public List<Mytable> Search(string title)
+        {
+            return _movieService.Search(title);
         }
 
         // POST api/<Movies>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void AddMovie([FromBody] Mytable mytable)
         {
+            _movieService.AddMovie(mytable);
         }
 
         // PUT api/<Movies>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void UpdateMovie(long id, [FromBody] Mytable mytable)
         {
+            _movieService.UpdateMovie(id,mytable);
         }
 
         // DELETE api/<Movies>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void DeleteMovie(long id)
         {
+            _movieService.DeleteMovie(id);
         }
     }
 }

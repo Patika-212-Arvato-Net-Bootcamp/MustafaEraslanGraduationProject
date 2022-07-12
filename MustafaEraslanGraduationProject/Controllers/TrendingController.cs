@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MustafaEraslanGraduationProject.Entities;
+using MustafaEraslanGraduationProject.Service;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +10,24 @@ namespace MustafaEraslanGraduationProject.Controllers
     [ApiController]
     public class TrendingController : ControllerBase
     {
+        private ITrendingService _trendingService;
+        public TrendingController(ITrendingService trendingService)
+        {
+            _trendingService = trendingService;
+        }
         // GET: api/<TrendingController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Mytable> ListMostViewedMovies()
         {
-            return new string[] { "value1", "value2" };
+            return _trendingService.ListMostViewedMovies();
         }
 
-        // GET api/<TrendingController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET api/<TrendingController>
+        [HttpGet]
+        public List<Mytable> ListTopRatedMovies()
         {
-            return "value";
+            return _trendingService.ListTopRatedMovies();
         }
 
-        // POST api/<TrendingController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<TrendingController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<TrendingController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

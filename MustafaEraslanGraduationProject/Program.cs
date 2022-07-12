@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MustafaEraslanGraduationProject;
+using MustafaEraslanGraduationProject.Service;
+using MustafaEraslanGraduationProject.Service.Imp;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +14,9 @@ builder.Services.AddDbContext<moviesContext>(
     {
         o.MigrationsAssembly(Assembly.GetAssembly(typeof(moviesContext)).GetName().Name);
     }));
-
+builder.Services.AddScoped<IGenreService, GenresService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<ITrendingService, TrendingService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

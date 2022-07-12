@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using MustafaEraslanGraduationProject.Entities;
+using MustafaEraslanGraduationProject.Service;
 
 namespace MustafaEraslanGraduationProject.Controllers
 {
@@ -8,32 +8,40 @@ namespace MustafaEraslanGraduationProject.Controllers
     [ApiController]
     public class GenresController : ControllerBase
     {
+        private IGenreService _genreService;
+        public GenresController(IGenreService genreService)
+        {
+            _genreService = genreService;
+        }
         // GET: api/<GenresController>
         [HttpGet]
-        public IEnumerable<string> ListGenres()
+        public List<Genres> ListGenres(long movieId)
         {
-            return new string[] { "value1", "value2" };
+            return _genreService.ListGenres(movieId);
         }
 
 
         // POST api/<GenresController>
         [HttpPost]
-        public void AddGenre([FromBody] string genre)
+        public void AddGenre(long movieId, [FromBody]  Genres genre)
         {
+            _genreService.AddGenre(movieId, genre);
             //string yerine Genre entities oluşturulacak. O nesne buraya verilecek.
         }
 
         // PUT api/<GenresController>/5
         [HttpPut("{id}")]
-        public void UpdateGenre(int id, [FromBody] string genre)
+        public void UpdateGenre(long movieId,int genreId, [FromBody] Genres genre)
         {
+            _genreService.UpdateGenre(movieId,genreId,genre);
             //string yerine Genre entities oluşturulacak. O nesne buraya verilecek.value değerleriküçük.
         }
 
         // DELETE api/<GenresController>/5
         [HttpDelete("{id}")]
-        public void DeleteGenre(int id)
+        public void DeleteGenre(long movieId, int genreId)
         {
+            _genreService.DeleteGenre(movieId,genreId); 
         }
     }
 }
