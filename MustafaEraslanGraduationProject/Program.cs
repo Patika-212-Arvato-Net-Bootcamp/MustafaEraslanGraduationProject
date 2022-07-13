@@ -8,11 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<moviesContext>(
+builder.Services.AddDbContext<MoviesContext>(
 
     o => o.UseNpgsql(builder.Configuration.GetConnectionString("default"), o =>
     {
-        o.MigrationsAssembly(Assembly.GetAssembly(typeof(moviesContext)).GetName().Name);
+        o.MigrationsAssembly(Assembly.GetAssembly(typeof(MoviesContext)).GetName().Name);
     }));
 builder.Services.AddScoped<IGenreService, GenresService>();
 builder.Services.AddScoped<IMovieService, MovieService>();

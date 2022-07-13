@@ -3,13 +3,13 @@ using MustafaEraslanGraduationProject.Entities;
 
 namespace MustafaEraslanGraduationProject
 {
-    public partial class moviesContext : DbContext
+    public partial class MoviesContext : DbContext
     {
-        public moviesContext()
+        public MoviesContext()
         {
         }
 
-        public moviesContext(DbContextOptions<moviesContext> options)
+        public MoviesContext(DbContextOptions<MoviesContext> options)
             : base(options)
         {
         }

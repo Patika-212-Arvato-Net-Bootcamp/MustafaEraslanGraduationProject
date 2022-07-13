@@ -16,14 +16,14 @@ namespace MustafaEraslanGraduationProject.Controllers
             _trendingService = trendingService;
         }
         // GET: api/<TrendingController>
-        [HttpGet]
+        [HttpGet("ListMostViewedMovies")]
         public List<Mytable> ListMostViewedMovies()
         {
             return _trendingService.ListMostViewedMovies();
         }
 
         // GET api/<TrendingController>
-        [HttpGet]
+        [HttpGet("ListTopRatedMovies")]
         public List<Mytable> ListTopRatedMovies()
         {
             return _trendingService.ListTopRatedMovies();

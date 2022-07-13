@@ -14,32 +14,32 @@ namespace MustafaEraslanGraduationProject.Controllers
             _movieService = movieService;
         }
 
-        [HttpGet]
+        [HttpGet("GetMovieDetail")]
         public Mytable GetMovieDetail(long id)
         {
             return _movieService.GetMovieDetail(id);
         }
 
         // GET api/<Movies>/5
-        [HttpGet("{id}")]
+        [HttpGet("GetMovieListGenre")]
         public List<Mytable> GetMovieList(int genreId)
         {
             return _movieService.GetMovieList(genreId);
         }
 
-        [HttpGet]
+        [HttpGet("GetMovieListRate")]
         public List<Mytable> GetMovieList(float rateFilter)
         {
             return _movieService.GetMovieList(rateFilter);
         }
 
-        [HttpGet]
+        [HttpGet("GetMovieListRelease")]
         public List<Mytable> GetMovieList(DateTime releaseDate)
         {
             return _movieService.GetMovieList(releaseDate);
         }
 
-        [HttpGet]
+        [HttpGet("Search")]
         public List<Mytable> Search(string title)
         {
             return _movieService.Search(title);

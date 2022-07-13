@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "P1D7fiSiABmzcgRMgmgLPKLpFfadyGaJOd7NeJvg46OkFOSNJEOJolB9hzuj3c0bL5SyHqg/CPIUbGB/Y8T8EA==",
+  "dgSpecHash": "JFDbqhWcX3A5jKhEpDPMeuby3WcarfEbL78XDTiTzsyxckJtA02Jf48n0NyruXRxrwC6x+24vG3E4FWDJ0wYaw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Mustafa Eraslan\\Documents\\GitHub\\MustafaEraslanGraduationProject\\MustafaEraslanGraduationProject\\MustafaEraslanGraduationProject.csproj",
   "expectedPackageFiles": [
@@ -27,6 +27,7 @@
     "C:\\Users\\Mustafa Eraslan\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\Mustafa Eraslan\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\Mustafa Eraslan\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Mustafa Eraslan\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Mustafa Eraslan\\.nuget\\packages\\npgsql\\6.0.5\\npgsql.6.0.5.nupkg.sha512",
     "C:\\Users\\Mustafa Eraslan\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.5\\npgsql.entityframeworkcore.postgresql.6.0.5.nupkg.sha512",
     "C:\\Users\\Mustafa Eraslan\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",

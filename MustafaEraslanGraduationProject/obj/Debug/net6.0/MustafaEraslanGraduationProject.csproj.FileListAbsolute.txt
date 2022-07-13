@@ -65,3 +65,4 @@ C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\Mustaf
 C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\obj\Debug\net6.0\MustafaEraslanGraduationProject.pdb
 C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\obj\Debug\net6.0\MustafaEraslanGraduationProject.genruntimeconfig.cache
 C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\obj\Debug\net6.0\ref\MustafaEraslanGraduationProject.dll
+C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\bin\Debug\net6.0\Newtonsoft.Json.dll
