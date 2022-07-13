@@ -5,7 +5,7 @@
         public string Adult { get; set; } = null!;
         public string? BelongsToCollection { get; set; }
         public string Budget { get; set; } = null!;
-        public string Genres { get; set; } = null!;
+        public string Genres { get; set; } = "[]";//default değer verdim.
         public string? Homepage { get; set; }
         public long Id { get; set; }
         public string? ImdbId { get; set; }
