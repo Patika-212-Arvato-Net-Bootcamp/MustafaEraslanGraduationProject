@@ -37,7 +37,7 @@ namespace MustafaEraslanGraduationProject.Service.Imp
 
                 }
                
-                _context.Add(mytable);
+                _context.Update(mytable);
                 _context.SaveChanges();
             }
         }
@@ -69,7 +69,41 @@ namespace MustafaEraslanGraduationProject.Service.Imp
 
         public void UpdateGenre(long movieId, int genreId, Genres genre)
         {
-            throw new NotImplementedException();
+            var mytable = _context.Mytables.Where(x => x.Id == movieId).FirstOrDefault();
+            if (mytable != null)
+            {
+                List<Genres> genres = new List<Genres>();
+                if (string.IsNullOrWhiteSpace(mytable.Genres))
+                {
+                    genre.Id = genreId;
+                    genres.Add(genre);
+                    var genreSerialize = JsonConvert.SerializeObject(genres);
+                    mytable.Genres = genreSerialize;
+                }
+                else
+                {
+                    var temp = JsonConvert.DeserializeObject<List<Genres>>(mytable.Genres);
+                    if (temp != null)
+                    {
+                        if (genre.Id == genreId)
+                        {
+                            temp.Remove(genre);
+                        }
+                        else if(genre.Id != genreId)
+                        {
+                            temp.Add(genre);
+                            genres = temp;
+                        }
+                        
+                    }
+                    var genreSerialize = JsonConvert.SerializeObject(genres);
+                    mytable.Genres = genreSerialize;
+
+                }
+
+                _context.Update(mytable);
+                _context.SaveChanges();
+            }
         }
     }
 }
