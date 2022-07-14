@@ -66,3 +66,11 @@ C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\Mustaf
 C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\obj\Debug\net6.0\MustafaEraslanGraduationProject.genruntimeconfig.cache
 C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\obj\Debug\net6.0\ref\MustafaEraslanGraduationProject.dll
 C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\bin\Debug\net6.0\libman.json
+C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Mustafa Eraslan\Documents\GitHub\MustafaEraslanGraduationProject\MustafaEraslanGraduationProject\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

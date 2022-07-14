@@ -118,6 +118,8 @@ namespace MustafaEraslanGraduationProject
             OnModelCreatingPartial(modelBuilder);
         }
 
+        public DbSet<UserEntity> Users { get; set; }
+
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

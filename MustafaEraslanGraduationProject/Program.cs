@@ -3,6 +3,9 @@ using MustafaEraslanGraduationProject;
 using MustafaEraslanGraduationProject.Service;
 using MustafaEraslanGraduationProject.Service.Imp;
 using System.Reflection;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +25,29 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//JWT
+var key = Encoding.ASCII.GetBytes(builder.Configuration["Application:JWTSecret"]);
+builder.Services.AddAuthentication(x => 
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(x => 
+{
+    x.Audience = "ARVATO";
+    x.RequireHttpsMetadata = false;
+    x.SaveToken = true;
+    x.ClaimsIssuer = "Arvato.Issuer.Development";
+    x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
+
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -33,6 +59,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
