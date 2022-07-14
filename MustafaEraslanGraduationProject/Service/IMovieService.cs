@@ -6,8 +6,8 @@ namespace MustafaEraslanGraduationProject.Service
     {
         Mytable GetMovieDetail(long id);
         List<Mytable> GetMovieList(int genreId);
-        List<Mytable> GetMovieList(float rateFilter);
-        List<Mytable> GetMovieList(DateTime releaseDate);
+        List<Mytable> GetMovieList(decimal rateFilter);
+        List<Mytable> GetMovieList(string releaseDate);
         List<Mytable> Search(string title);
         void AddMovie(Mytable movie);
         void UpdateMovie(long id,Mytable movie);

@@ -42,39 +42,74 @@ namespace MustafaEraslanGraduationProject.Service.Imp
             var movie= _context.Mytables.Where(x => x.Id == id).FirstOrDefault();
             if(movie != null)
             {
-                _context.Remove(movie);
+                _context.Remove(movie); 
                 _context.SaveChanges();
             }
         }
 
         public Mytable GetMovieDetail(long id)
         {
-            throw new NotImplementedException();
+            Mytable movie = _context.Mytables.Where(x => x.Id == id).FirstOrDefault();
+            return movie;
         }
 
         public List<Mytable> GetMovieList(int genreId)
         {
-            throw new NotImplementedException();
+            List<Mytable> movie = _context.Mytables.ToList();
+            movie = movie.Where( x=> x.Genres.IndexOf($"'id'={genreId}", StringComparison.InvariantCultureIgnoreCase) > -1).ToList();
+            return movie;
         }
 
-        public List<Mytable> GetMovieList(float rateFilter)
+        public List<Mytable> GetMovieList(decimal rateFilter)
         {
-            throw new NotImplementedException();
+            List<Mytable> movie = _context.Mytables.ToList();
+            movie=movie.Where(x => x.VoteAverage >= rateFilter).ToList();
+            return movie;
         }
 
-        public List<Mytable> GetMovieList(DateTime releaseDate)
+        public List<Mytable> GetMovieList(string releaseDate)//asenc olacak. ve controller asencron olacak
         {
-            throw new NotImplementedException();
+            List<Mytable> movie = _context.Mytables
+                .ToList();
+            movie = movie.Where(x => (!string.IsNullOrWhiteSpace(x.ReleaseDate)
+             && x.ReleaseDate.Equals(releaseDate, StringComparison.InvariantCultureIgnoreCase)))
+                .ToList();
+            return movie;
         }
 
-        public List<Mytable> Search(string title)
+        public List<Mytable> Search(string title)//asenc olacak. ve controller asencron olacak
         {
-            throw new NotImplementedException();
+            List<Mytable> movies = _context.Mytables.ToList();
+            movies = movies.Where(x => (!string.IsNullOrWhiteSpace(x.Title) &&
+            x.Title.IndexOf($"{title}",StringComparison.InvariantCultureIgnoreCase) > -1)).ToList();
+            return movies;
         }
 
         public void UpdateMovie(long id, Mytable movie)
         {
-            throw new NotImplementedException();
+            var mytable = _context.Mytables.Where(x=>x.Id == id).FirstOrDefault();
+            if (mytable == null) return;
+            Genres genre = new Genres();
+            List<Genres> genres = new List<Genres>();
+            if (string.IsNullOrWhiteSpace(movie.Genres))
+            {
+                movie.Genres = "[]";
+            }
+            if (string.IsNullOrWhiteSpace(movie.SpokenLanguages))
+            {
+                movie.SpokenLanguages = "[]";
+            }
+            if (string.IsNullOrWhiteSpace(movie.ProductionCompanies))
+            {
+                movie.ProductionCompanies = "[]";
+            }
+            if (string.IsNullOrWhiteSpace(movie.ProductionCompanies))
+            {
+                movie.ProductionCompanies = "[]";
+            }
+
+            _context.Update(movie);
+            _context.SaveChanges();
         }
     }
 }

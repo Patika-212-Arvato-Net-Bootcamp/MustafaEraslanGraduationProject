@@ -28,13 +28,13 @@ namespace MustafaEraslanGraduationProject.Controllers
         }
 
         [HttpGet("GetMovieListRate")]
-        public List<Mytable> GetMovieList(float rateFilter)
+        public List<Mytable> GetMovieList(decimal rateFilter)
         {
             return _movieService.GetMovieList(rateFilter);
         }
 
         [HttpGet("GetMovieListRelease")]
-        public List<Mytable> GetMovieList(DateTime releaseDate)
+        public List<Mytable> GetMovieList(string releaseDate)
         {
             return _movieService.GetMovieList(releaseDate);
         }
