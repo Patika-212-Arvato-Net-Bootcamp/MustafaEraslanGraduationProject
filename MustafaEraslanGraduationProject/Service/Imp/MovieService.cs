@@ -20,41 +20,129 @@ namespace MustafaEraslanGraduationProject.Service.Imp
             {
                 genres.Add(genre);
                 var genreSerialize = JsonConvert.SerializeObject(genres);
-                movie.Genres = genreSerialize;
+                var movieS = movie.Genres;
+                movieS = genreSerialize;
             }
             else
             {
-                var temp = JsonConvert.DeserializeObject<List<Genres>>(movie.Genres);
+                var movieY = movie.Genres;
+                var temp = JsonConvert.DeserializeObject<List<Genres>>(movieY);
                 if (temp != null)
                 {
                     temp.Add(genre);
                     genres = temp;
                 }
                 var genreSerialize = JsonConvert.SerializeObject(genres);
-                movie.Genres = genreSerialize;
+                var movieS = movie.Genres;
+                movieS = genreSerialize;
             }
 
             BelongsToCollection belong = new BelongsToCollection();
-            List<BelongsToCollection> belongs = new List<BelongsToCollection>();
             if (string.IsNullOrWhiteSpace(movie.BelongsToCollection))
             {
-                belongs.Add(belong);
-                var genreSerialize = JsonConvert.SerializeObject(belongs);
-                movie.BelongsToCollection = genreSerialize;
+                var belon = new BelongsToCollection()
+                {
+                    Id = belong.Id,
+                    Name = belong.Name,
+                    BackDrop_Path = belong.BackDrop_Path,
+                    Poster_Path = belong.Poster_Path
+                };
+                var genreSerialize = JsonConvert.SerializeObject(belon);
+                var belongS = movie.BelongsToCollection;
+                belongS = genreSerialize;
             }
             else
             {
-                var temp = JsonConvert.DeserializeObject<List<BelongsToCollection>>(movie.BelongsToCollection);
+                var belongY = movie.BelongsToCollection;
+                var temp = JsonConvert.DeserializeObject<BelongsToCollection>(belongY);
                 if (temp != null)
                 {
-                    temp.Add(belong);
-                    belongs = temp;
+                    var belon = new BelongsToCollection()
+                    {
+                        Id = belong.Id,
+                        Name = belong.Name,
+                        BackDrop_Path = belong.BackDrop_Path,
+                        Poster_Path = belong.Poster_Path
+                    };
+                    belon = temp;
                 }
-                var genreSerialize = JsonConvert.SerializeObject(belongs);
-                movie.BelongsToCollection = genreSerialize;
+                var genreSerialize = JsonConvert.SerializeObject(belongY);
+                var belongS = movie.BelongsToCollection;
+                belongS = genreSerialize;
             }
 
-            _context.Add(movie);
+            SpokenLanguages language = new SpokenLanguages();
+            List<SpokenLanguages> languages = new List<SpokenLanguages>();
+            if (string.IsNullOrWhiteSpace(movie.SpokenLanguages))
+            {
+                languages.Add(language);
+                var genreSerialize = JsonConvert.SerializeObject(languages);
+                var languageS = movie.SpokenLanguages;
+                languageS = genreSerialize;
+            }
+            else
+            {
+                var languageY = movie.SpokenLanguages;
+                var temp = JsonConvert.DeserializeObject<List<SpokenLanguages>>(languageY);
+                if (temp != null)
+                {
+                    temp.Add(language);
+                    languages = temp;
+                }
+                var genreSerialize = JsonConvert.SerializeObject(languages);
+                var movieS = movie.SpokenLanguages;
+                movieS = genreSerialize;
+            }
+
+            ProductionCompanies company = new ProductionCompanies();
+            List<ProductionCompanies> companies = new List<ProductionCompanies>();
+            if (string.IsNullOrWhiteSpace(movie.ProductionCompanies))
+            {
+                companies.Add(company);
+                var genreSerialize = JsonConvert.SerializeObject(companies);
+                var companyS = movie.ProductionCompanies;
+                companyS = genreSerialize;
+            }
+            else
+            {
+                var companyY = movie.ProductionCompanies;
+                var temp = JsonConvert.DeserializeObject<List<ProductionCompanies>>(companyY);
+                if (temp != null)
+                {
+                    temp.Add(company);
+                    companies = temp;
+                }
+                var genreSerialize = JsonConvert.SerializeObject(companies);
+                var movieS = movie.ProductionCompanies;
+                movieS = genreSerialize;
+            }
+
+
+            ProductionCountries country = new ProductionCountries();
+            List<ProductionCountries> countries = new List<ProductionCountries>();
+            if (string.IsNullOrWhiteSpace(movie.ProductionCompanies.ToString()))
+            {
+                countries.Add(country);
+                var genreSerialize = JsonConvert.SerializeObject(countries);
+                var countryS = movie.ProductionCountries;
+                countryS = genreSerialize;
+            }
+            else
+            {
+                var countryY = movie.ProductionCountries;
+                var temp = JsonConvert.DeserializeObject<List<ProductionCountries>>(countryY);
+                if (temp != null)
+                {
+                    temp.Add(country);
+                    countries = temp;
+                }
+                var genreSerialize = JsonConvert.SerializeObject(countries);
+                var movieS = movie.ProductionCountries;
+                movieS = genreSerialize;
+            }
+
+
+            _context.Mytables.Add(movie);
             _context.SaveChanges();
         }
 

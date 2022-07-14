@@ -14,12 +14,12 @@
         public string? Overview { get; set; }
         public string? Popularity { get; set; }
         public string? PosterPath { get; set; }
-        public string? ProductionCompanies { get; set; }
-        public string? ProductionCountries { get; set; }
+        public string? ProductionCompanies { get; set; } = "[]";
+        public string? ProductionCountries { get; set; } = "[]";
         public string? ReleaseDate { get; set; }
         public int? Revenue { get; set; }
         public decimal? Runtime { get; set; }
-        public string? SpokenLanguages { get; set; }
+        public string? SpokenLanguages { get; set; } = "[]";
         public string? Status { get; set; }
         public string? Tagline { get; set; }
         public string? Title { get; set; }

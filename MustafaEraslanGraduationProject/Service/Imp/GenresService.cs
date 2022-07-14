@@ -87,14 +87,16 @@ namespace MustafaEraslanGraduationProject.Service.Imp
                     {
                         if (genre.Id == genreId)
                         {
-                            temp.Remove(genre);
+                            var tempId = temp.Find(x => x.Id == genreId);
+                            temp.Remove(tempId);
                         }
-                        else if(genre.Id != genreId)
+                        else if (genre.Id != genreId)
                         {
                             temp.Add(genre);
                             genres = temp;
                         }
-                        
+
+
                     }
                     var genreSerialize = JsonConvert.SerializeObject(genres);
                     mytable.Genres = genreSerialize;
