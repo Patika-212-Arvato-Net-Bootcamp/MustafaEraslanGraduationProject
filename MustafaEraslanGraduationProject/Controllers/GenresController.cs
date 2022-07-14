@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MustafaEraslanGraduationProject.Entities;
 using MustafaEraslanGraduationProject.Service;
 
@@ -6,6 +7,7 @@ namespace MustafaEraslanGraduationProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class GenresController : ControllerBase
     {
         private IGenreService _genreService;
@@ -15,6 +17,7 @@ namespace MustafaEraslanGraduationProject.Controllers
         }
         // GET: api/<GenresController>
         [HttpGet]
+        [AllowAnonymous]
         public List<Genres> ListGenres(long movieId)
         {
             return _genreService.ListGenres(movieId);

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MustafaEraslanGraduationProject.Entities;
 using MustafaEraslanGraduationProject.Service;
 
@@ -6,6 +7,7 @@ namespace MustafaEraslanGraduationProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize] 
     public class MoviesController : ControllerBase
     {
         private IMovieService _movieService;
@@ -15,6 +17,7 @@ namespace MustafaEraslanGraduationProject.Controllers
         }
 
         [HttpGet("GetMovieDetail")]
+        [AllowAnonymous]
         public Mytable GetMovieDetail(long id)
         {
             return _movieService.GetMovieDetail(id);
@@ -22,24 +25,28 @@ namespace MustafaEraslanGraduationProject.Controllers
 
         // GET api/<Movies>/5
         [HttpGet("GetMovieListGenre")]
+        [AllowAnonymous]
         public List<Mytable> GetMovieList(int genreId)
         {
             return _movieService.GetMovieList(genreId);
         }
 
         [HttpGet("GetMovieListRate")]
+        [AllowAnonymous]
         public List<Mytable> GetMovieList(decimal rateFilter)
         {
             return _movieService.GetMovieList(rateFilter);
         }
 
         [HttpGet("GetMovieListRelease")]
+        [AllowAnonymous]
         public List<Mytable> GetMovieList(string releaseDate)
         {
             return _movieService.GetMovieList(releaseDate);
         }
 
         [HttpGet("Search")]
+        [AllowAnonymous]
         public List<Mytable> Search(string title)
         {
             return _movieService.Search(title);
