@@ -39,7 +39,12 @@ namespace MustafaEraslanGraduationProject.Service.Imp
 
         public void DeleteMovie(long id)
         {
-            throw new NotImplementedException();
+            var movie= _context.Mytables.Where(x => x.Id == id).FirstOrDefault();
+            if(movie != null)
+            {
+                _context.Remove(movie);
+                _context.SaveChanges();
+            }
         }
 
         public Mytable GetMovieDetail(long id)

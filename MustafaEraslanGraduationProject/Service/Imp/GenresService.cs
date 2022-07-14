@@ -44,14 +44,49 @@ namespace MustafaEraslanGraduationProject.Service.Imp
 
         public void DeleteByMovieAllGenre(long movieId)
         {
-            throw new NotImplementedException();
+            var mytable = _context.Mytables.Where(x => x.Id == movieId).FirstOrDefault();
+            if (mytable != null)
+            {
+                List<Genres> genres = new List<Genres>();
+
+                var temp = JsonConvert.DeserializeObject<List<Genres>>(mytable.Genres);
+                if (temp != null && temp.Count > 0)
+                {
+                    temp.Clear();
+                    genres = temp;
+                }
+                var genreSerialize = JsonConvert.SerializeObject(genres);
+                mytable.Genres = genreSerialize;
+
+                _context.Update(mytable);
+                _context.SaveChanges();
+            }
         }
 
         public void DeleteGenre(long movieId, int genreId)
         {
-            throw new NotImplementedException();
-        }
+            var mytable = _context.Mytables.Where(x => x.Id == movieId).FirstOrDefault();
+            if (mytable != null)
+            {
+                List<Genres> genres = new List<Genres>();
 
+                var temp = JsonConvert.DeserializeObject<List<Genres>>(mytable.Genres);
+                if (temp != null && temp.Count > 0)
+                {
+                    var tempGenre = temp.Find(x => x.Id == genreId);
+                    if (tempGenre != null)
+                    {
+                        temp.Remove(tempGenre);
+                    }
+                    genres = temp;
+                }
+                var genreSerialize = JsonConvert.SerializeObject(genres);
+                mytable.Genres = genreSerialize;
+
+                _context.Update(mytable);
+                _context.SaveChanges();
+            }
+        }
         public List<Genres> ListGenres(long movieId)
         {
             var mytable = _context.Mytables.Where(x => x.Id == movieId).FirstOrDefault();
@@ -75,7 +110,7 @@ namespace MustafaEraslanGraduationProject.Service.Imp
                 List<Genres> genres = new List<Genres>();
 
                 var temp = JsonConvert.DeserializeObject<List<Genres>>(mytable.Genres);
-                if (temp != null && temp.Count != 0)
+                if (temp != null && temp.Count > 0)
                 {
                     var tempGenre = temp.Find(x => x.Id == genreId);
                     if (tempGenre != null)
