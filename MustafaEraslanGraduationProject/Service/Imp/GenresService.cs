@@ -36,7 +36,7 @@ namespace MustafaEraslanGraduationProject.Service.Imp
                     mytable.Genres = genreSerialize;
 
                 }
-               
+
                 _context.Update(mytable);
                 _context.SaveChanges();
             }
@@ -55,7 +55,7 @@ namespace MustafaEraslanGraduationProject.Service.Imp
         public List<Genres> ListGenres(long movieId)
         {
             var mytable = _context.Mytables.Where(x => x.Id == movieId).FirstOrDefault();
-            if(mytable != null && !string.IsNullOrWhiteSpace(mytable.Genres))
+            if (mytable != null && !string.IsNullOrWhiteSpace(mytable.Genres))
             {
                 var genres = JsonConvert.DeserializeObject<List<Genres>>(mytable.Genres);
                 if (genres != null) return genres;
@@ -73,35 +73,21 @@ namespace MustafaEraslanGraduationProject.Service.Imp
             if (mytable != null)
             {
                 List<Genres> genres = new List<Genres>();
-                if (string.IsNullOrWhiteSpace(mytable.Genres))
+
+                var temp = JsonConvert.DeserializeObject<List<Genres>>(mytable.Genres);
+                if (temp != null && temp.Count != 0)
                 {
-                    genre.Id = genreId;
-                    genres.Add(genre);
-                    var genreSerialize = JsonConvert.SerializeObject(genres);
-                    mytable.Genres = genreSerialize;
-                }
-                else
-                {
-                    var temp = JsonConvert.DeserializeObject<List<Genres>>(mytable.Genres);
-                    if (temp != null)
+                    var tempGenre = temp.Find(x => x.Id == genreId);
+                    if (tempGenre != null)
                     {
-                        if (genre.Id == genreId)
-                        {
-                            var tempId = temp.Find(x => x.Id == genreId);
-                            temp.Remove(tempId);
-                        }
-                        else if (genre.Id != genreId)
-                        {
-                            temp.Add(genre);
-                            genres = temp;
-                        }
-
-
+                        tempGenre.Name = genre.Name;
+                        int index = temp.IndexOf(tempGenre);
+                        if (index > -1) temp[index] = genre;
                     }
-                    var genreSerialize = JsonConvert.SerializeObject(genres);
-                    mytable.Genres = genreSerialize;
-
+                    genres = temp;
                 }
+                var genreSerialize = JsonConvert.SerializeObject(genres);
+                mytable.Genres = genreSerialize;
 
                 _context.Update(mytable);
                 _context.SaveChanges();

@@ -30,7 +30,7 @@ namespace MustafaEraslanGraduationProject.Controllers
         }
 
         // PUT api/<GenresController>/5
-        [HttpPut("{id}")]
+        [HttpPut("{movieId}")]
         public void UpdateGenre(long movieId,int genreId, [FromBody] Genres genre)
         {
             _genreService.UpdateGenre(movieId,genreId,genre);
@@ -38,7 +38,7 @@ namespace MustafaEraslanGraduationProject.Controllers
         }
 
         // DELETE api/<GenresController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{movieId}")]
         public void DeleteGenre(long movieId, int genreId)
         {
             _genreService.DeleteGenre(movieId,genreId); 
