@@ -48,33 +48,50 @@ My tests are as follows;
 
 [HttpGet] Genres information of the movie can be called by giving movieId value with "ListGenres".
 For example;
+
 ![image](https://user-images.githubusercontent.com/44713722/179119297-2ea7287c-ef3a-43db-bdf2-09cf2794f92d.png)
+
 [HttpPost] Genre details of the movie can be added with "AddGenre" (Jwt token should be taken for security reasons)
 For example, the genres value of the movie with id 416437 is empty. We can add genre with AddGenre. It successfully added as below.
+
 ![image](https://user-images.githubusercontent.com/44713722/179119652-69440600-7ea9-4599-95ee-e9e64df310d0.png)
+
 When we get the movie with id 416437, we see that the genres data is now full.
+
 ![image](https://user-images.githubusercontent.com/44713722/179120359-a3a8edd8-f330-42f9-aad3-578a295a12e3.png)
+
 [HttpPut] With UpdateGenre, the genre information of the movie can be updated by giving the movieId value.
+
 ![image](https://user-images.githubusercontent.com/44713722/179120573-dc749913-6f3b-41ce-ae9c-ea5da9e5b712.png)
+
 When the same movie is made, we see that the previous genre value is updated.
+
 ![image](https://user-images.githubusercontent.com/44713722/179120623-bb7d8f15-ecfa-4d28-ba6e-c42b45932f46.png)
+
 [HttpDelete] With DeleteGenre, the genre of the movie can be deleted according to the movieId value.
+
 ![image](https://user-images.githubusercontent.com/44713722/179120847-9d233df4-adc0-44b5-a633-046e45a11468.png)
+
 It seems that the same movie is deleted when get is done.
+
 ![image](https://user-images.githubusercontent.com/44713722/179120903-60cbc0ca-74f0-416c-99b8-362a4a6041dd.png)
 
 #For movies;
 [HttpGet] /api/Movies/GetMovieDeail You can bring movie details with . In the same way, genre details are brought with GetMovieListGenre.
 For example,
+
 ![image](https://user-images.githubusercontent.com/44713722/179121072-f64f0165-19dc-4928-9b10-00032f62e3b4.png)
 
 [HttpGet] I used "Postman" for "/api/Movies/GetMovieListRate". I decided to test it with Postman because Swagger received a lot of data and responded late.
+
 ![image](https://user-images.githubusercontent.com/44713722/179121450-6aae241c-1226-4e2c-b6d2-ae5ff1306674.png)
 
 [HttpGet] Successfully getting response for "/api/Movies/GetMovieListRelease" with date 1996-09-10 as in subsection.
+
 ![image](https://user-images.githubusercontent.com/44713722/179121772-3ca06793-2042-4d14-95f8-1506f58d1291.png)
 
 [HttpGet] When I search the data named "Time Tracers" for "/api/Movies/Search", the details of this movie come up by name successfully.
+
 ![image](https://user-images.githubusercontent.com/44713722/179121927-f7a1272f-3fde-483c-89aa-7b5e7ef3db49.png)
 
 [HttpPost] When the json data in the subsection is sent for "/api/Movies", the movie is successfully added. Here, it is necessary to pay attention to the character limit in the database. Especially "original language", "video" columns should not be given more than 5 characters.
@@ -105,6 +122,7 @@ For example,
   "voteAverage": 0,
   "voteCount": 0
 }
+
 ![image](https://user-images.githubusercontent.com/44713722/179122683-a2c37edc-483b-4d2d-abc5-b033e492ad59.png)
 
 In addition, when we check it through the database, we see that this record has arrived.
