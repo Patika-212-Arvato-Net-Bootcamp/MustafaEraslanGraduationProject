@@ -23,7 +23,7 @@ namespace MustafaEraslanGraduationProject.Controllers
         }
 
         // GET api/<TrendingController>
-        [HttpGet("ListTopRatedMovies")]
+        [HttpGet("ListTopRatedMovies")] //TopRate movie detaylarını getirir.
         public List<Mytable> ListTopRatedMovies()
         {
             return _trendingService.ListTopRatedMovies();

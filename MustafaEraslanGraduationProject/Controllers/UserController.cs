@@ -43,7 +43,7 @@ namespace MustafaEraslanGraduationProject.Controllers
                 Issuer = "ARVATO.Issuer.Development",
                 Subject = new ClaimsIdentity(new Claim[]
                  {
-                            //Add any claim
+                            
                             new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString()),
                             new Claim(ClaimTypes.Name, username),
                             new Claim(ClaimTypes.Role , "Administrator")

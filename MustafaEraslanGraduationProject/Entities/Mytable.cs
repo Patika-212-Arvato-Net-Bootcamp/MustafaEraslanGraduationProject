@@ -1,7 +1,7 @@
 ﻿namespace MustafaEraslanGraduationProject.Entities
 {
-    public partial class Mytable
-    {
+    public partial class Mytable //ilk etapta migration aldığımda dbFirst ile oluşan datalar ve datatipleri bu şekilde
+    { //Null özellikleri yine dbFirst ile default olarak gelmiş oldu.
         public string Adult { get; set; } = null!;
         public string? BelongsToCollection { get; set; }
         public string Budget { get; set; } = null!;

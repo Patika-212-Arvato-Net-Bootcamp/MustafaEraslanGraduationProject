@@ -18,7 +18,7 @@ namespace MustafaEraslanGraduationProject.Service.Imp
             List<Genres> genres = new List<Genres>();
             if (string.IsNullOrWhiteSpace(movie.Genres))
             {
-                movie.Genres = "[]";
+                movie.Genres = "[]"; //Default değeri
             }
             if (string.IsNullOrWhiteSpace(movie.SpokenLanguages))
             {

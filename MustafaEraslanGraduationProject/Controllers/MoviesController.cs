@@ -67,7 +67,7 @@ namespace MustafaEraslanGraduationProject.Controllers
         }
 
         // DELETE api/<Movies>/5
-        [HttpDelete("{id}")]//id bazlı silme
+        [HttpDelete("{id}")]//id bazlı silme işlemi sağlandı
         public void DeleteMovie(long id)
         {
             _movieService.DeleteMovie(id);

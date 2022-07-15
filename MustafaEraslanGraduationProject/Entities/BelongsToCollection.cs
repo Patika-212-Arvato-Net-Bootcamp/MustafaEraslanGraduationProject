@@ -1,8 +1,8 @@
 ﻿namespace MustafaEraslanGraduationProject.Entities
 {
     [Serializable]
-    public class BelongsToCollection
-    {
+    public class BelongsToCollection //BelongToCollection json formatında ve birden fazla parametreye sahip. 
+    { //bu sebeple bu kolonu ayrı bir entities'te tutmak istedim. ve nesene türettim.
         public int Id { get; set; }
 
         public string? Name { get; set; }
