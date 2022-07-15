@@ -12,7 +12,9 @@ The "endpoints" I have completed in my project are as in the subsection.
 
 In general, the structure I created is as in the subsection.
 
-![image](https://user-images.githubusercontent.com/44713722/179118544-1947cdfb-4e5d-4220-b489-78f64b9a08e7.png)
+![image](https://user-images.githubusercontent.com/44713722/179223561-4169b47f-73a4-4e9e-9c2a-d486e2f277d0.png)
+![image](https://user-images.githubusercontent.com/44713722/179223639-1d692a25-f1ff-4a7f-ba7e-ee38ab396280.png)
+
 
 We were given .csv data for the project. In this data structure, there were data structures such as json, json[], date.
 
@@ -34,9 +36,11 @@ Duplicate key value violates unique constraint (EF Core & PostgresSQL)
 PostgresException: 23505: duplicate key value violates unique constraint "PK_country"
 
 My method and methodology for solving errors;
+
 -I proceeded step by step by putting "break points" for the points where I got an error in the project. I have often used the stackoverflow platform to handle every error received. I did research on similar projects on Github.
 
 What did I learn by completing the project? What are my gains?
+
 -I learned how to integrate Jwt token in the project. I used postgresql for the first time and gained experience on how to connect with postgresql. I learned how to handle json data with different data types, for example 3-4 different parameters in a column. I saw how I should import such data to the db side. What is redis used for in projects? I tried to find answers to the questions of what is a backgroundjob written for. I have found answers to the questions of when to use DbFirst and when to use CodeFirst.
 
 What could I have done better? What did I do well?
