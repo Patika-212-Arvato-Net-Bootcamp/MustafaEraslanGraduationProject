@@ -12,7 +12,9 @@ The "endpoints" I have completed in my project are as in the subsection.
 
 In general, the structure I created is as in the subsection.
 
-![image](https://user-images.githubusercontent.com/44713722/179118544-1947cdfb-4e5d-4220-b489-78f64b9a08e7.png)
+![image](https://user-images.githubusercontent.com/44713722/179223561-4169b47f-73a4-4e9e-9c2a-d486e2f277d0.png)
+![image](https://user-images.githubusercontent.com/44713722/179223639-1d692a25-f1ff-4a7f-ba7e-ee38ab396280.png)
+
 
 We were given .csv data for the project. In this data structure, there were data structures such as json, json[], date.
 
