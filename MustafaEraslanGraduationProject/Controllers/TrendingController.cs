@@ -17,7 +17,7 @@ namespace MustafaEraslanGraduationProject.Controllers
         }
         // GET: api/<TrendingController>
         [HttpGet("ListMostViewedMovies")]
-        public List<Mytable> ListMostViewedMovies()
+        public List<Mytable> ListMostViewedMovies() //mostviewed olan datayı getir
         {
             return _trendingService.ListMostViewedMovies();
         }

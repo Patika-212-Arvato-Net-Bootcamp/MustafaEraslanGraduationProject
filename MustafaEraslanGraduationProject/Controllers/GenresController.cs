@@ -7,18 +7,18 @@ namespace MustafaEraslanGraduationProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
-    public class GenresController : ControllerBase
+    [Authorize] //AllowAnonymous olmayan methodlardan jwt token alınmasını zorunlu kılmak için kullanıldı.
+    public class GenresController : ControllerBase //Genre için controller oluşturdum.
     {
         private IGenreService _genreService;
-        public GenresController(IGenreService genreService)
+        public GenresController(IGenreService genreService) 
         {
             _genreService = genreService;
         }
         // GET: api/<GenresController>
         [HttpGet]
         [AllowAnonymous]
-        public List<Genres> ListGenres(long movieId)
+        public List<Genres> ListGenres(long movieId) //movieId'ye göre genre dönmeyi sağladım.
         {
             return _genreService.ListGenres(movieId);
         }
@@ -26,22 +26,22 @@ namespace MustafaEraslanGraduationProject.Controllers
 
         // POST api/<GenresController>
         [HttpPost]
-        public void AddGenre(long movieId, [FromBody]  Genres genre)
+        public void AddGenre(long movieId, [FromBody]  Genres genre) //MovieID'ye göre genre eklenilmesi sağlandı. Genre son kullanıcıdan alınıyor
         {
             _genreService.AddGenre(movieId, genre);
-            //string yerine Genre entities oluşturulacak. O nesne buraya verilecek.
+            
         }
 
         // PUT api/<GenresController>/5
         [HttpPut("{movieId}")]
-        public void UpdateGenre(long movieId,int genreId, [FromBody] Genres genre)
+        public void UpdateGenre(long movieId,int genreId, [FromBody] Genres genre) //movieId değerine göre genre güncelleme işlemi
         {
             _genreService.UpdateGenre(movieId,genreId,genre);
-            //string yerine Genre entities oluşturulacak. O nesne buraya verilecek.value değerleriküçük.
+            
         }
 
         // DELETE api/<GenresController>/5
-        [HttpDelete("{movieId}")]
+        [HttpDelete("{movieId}")] //movieId değerine göre genre silme işlemi
         public void DeleteGenre(long movieId, int genreId)
         {
             _genreService.DeleteGenre(movieId,genreId); 

@@ -4,7 +4,7 @@ using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MustafaEraslanGraduationProject.BackGroundJob
+namespace MustafaEraslanGraduationProject.BackGroundJob //Backgrounjob oluşturuldu
 {
     public class ConsumerBGService : BackgroundService
     {
