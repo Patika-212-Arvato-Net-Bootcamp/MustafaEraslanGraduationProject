@@ -9,11 +9,11 @@ namespace MustafaEraslanGraduationProject.Service.Imp
         private readonly MoviesContext _context;
         public GenresService(MoviesContext context)
         {
-            _context = context;
+            _context = context; //db için ctor tanımladım
         }
-        public void AddGenre(long movieId, Genres genre)
+        public void AddGenre(long movieId, Genres genre) //Add genre için gerekli olan parametreler
         {
-            // throw new NotImplementedException();
+           
             var mytable = _context.Mytables.Where(x => x.Id == movieId).FirstOrDefault();
             if (mytable != null)
             {
@@ -21,7 +21,7 @@ namespace MustafaEraslanGraduationProject.Service.Imp
                 if (string.IsNullOrWhiteSpace(mytable.Genres))
                 {
                     genres.Add(genre);
-                    var genreSerialize = JsonConvert.SerializeObject(genres);
+                    var genreSerialize = JsonConvert.SerializeObject(genres);//mevcut json formatlı genres datasına sahip olduğumuz için Serilize işlemine ihtiyaç duyuyoruz.
                     mytable.Genres = genreSerialize;
                 }
                 else
